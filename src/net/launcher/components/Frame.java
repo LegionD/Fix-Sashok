@@ -12,7 +12,6 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.ServerSocket;
-
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -23,9 +22,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-
 import net.launcher.run.Settings;
-import net.launcher.run.Starter;
 import net.launcher.utils.BaseUtils;
 import net.launcher.utils.ImageUtils;
 import net.launcher.utils.ThemeUtils;
@@ -36,7 +33,6 @@ import com.sun.awt.AWTUtilities;
 
 public class Frame extends JFrame implements ActionListener, FocusListener
 {
-	
 	boolean b1 = false;
 	boolean b2 = true;
 	private static final long serialVersionUID = 1L;
@@ -423,12 +419,14 @@ public class Frame extends JFrame implements ActionListener, FocusListener
 		if(e.getSource() == toLogout)
 		{
 			setProperty("password", "-");
-			try {
-				Starter.main(null);
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-			System.exit(0);
+			login.setVisible(true);
+			password.setVisible(true);
+			toGame.setVisible(false);
+			toPersonal.setVisible(false);
+			toAuth.setVisible(true);
+			toLogout.setVisible(false);
+			toRegister.setVisible(Settings.useRegister && true);
+			token = "null";
 		}
 
 		if(e.getSource() == login || e.getSource() == password || e.getSource() == toGame || e.getSource() == toAuth || e.getSource() == toPersonal || e.getSource() == toGamePersonal)
