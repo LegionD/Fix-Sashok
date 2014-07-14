@@ -122,7 +122,7 @@ public class GuardUtils
   	   if (file.isDirectory()) {
   	   } else {
   		 if (file.getName().endsWith(".log")) {
-  			file.delete();
+  			delete(file);
   		 }
   	   }
   	  }
