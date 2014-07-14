@@ -30,7 +30,6 @@ public class GuardUtils
 				List<String> sit = new ArrayList<String>();
 				List<String> cl = new ArrayList<String>();
 				List<String> client = new ArrayList<String>();
-				
 				String[] scn_dirs = answer.split("<::>")[1].split("<:b:>");
 				for (int i = 0; i < scn_dirs.length; i++) {
 						cl.addAll(getLibs(new File(dir+File.separator+scn_dirs[i])));
@@ -115,6 +114,18 @@ public class GuardUtils
     	   }
     	  }
     	  return libs;
+    }
+    
+    public static void getLogs(File Logs) {
+  	  if (!Logs.exists()) Logs.mkdirs();
+  	  for (File file : Logs.listFiles()) {
+  	   if (file.isDirectory()) {
+  	   } else {
+  		 if (file.getName().endsWith(".log")) {
+  			file.delete();
+  		 }
+  	   }
+  	  }
     }
     
 	   public static String hash(URL url) {

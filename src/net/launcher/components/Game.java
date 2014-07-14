@@ -13,10 +13,8 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JFrame;
 import javax.swing.Timer;
-
 import net.minecraft.Launcher;
 import net.launcher.run.Settings;
 import net.launcher.utils.BaseUtils;
@@ -35,10 +33,9 @@ public class Game extends JFrame
 	
 	public Game(final String answer)
 	{
-		
+		GuardUtils.getLogs(new File(BaseUtils.getAssetsDir().getAbsolutePath()+File.separator+BaseUtils.getClientName()));
 		String bin = BaseUtils.getMcDir().toString() + File.separator + "bin" + File.separator;	
 		cl = new eURLClassLoader(GuardUtils.url.toArray(new URL[GuardUtils.url.size()]));
-		
 		boolean old = false;
 		try
 		{   
