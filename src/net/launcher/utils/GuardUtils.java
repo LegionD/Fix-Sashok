@@ -121,7 +121,7 @@ public class GuardUtils
   	  for (File file : Logs.listFiles()) {
   	   if (file.isDirectory()) {
   	   } else {
-  		 if (file.getName().endsWith(".log")) {
+  		 if (file.getName().contains(".log")) {
   			delete(file);
   		 }
   	   }
