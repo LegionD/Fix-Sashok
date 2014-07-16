@@ -28,6 +28,8 @@
 	
 	try {
 		
+	$login = trim($login);
+	
 	if (!preg_match("/^[a-zA-Z0-9_-]+$/", $login) || !preg_match("/^[a-zA-Z0-9_-]+$/", $postPass) || !preg_match("/^[a-zA-Z0-9_-]+$/", $action)) {
 	
 		exit(Security::encrypt("errorLogin<$>", $key1));
